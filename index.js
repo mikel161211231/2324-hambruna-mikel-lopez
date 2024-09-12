@@ -26,6 +26,8 @@ function exercise1(allData) {
     
 
     exercise1Sugar(allData);
+    console.log("");(allData);
+    exercise1Iron(allData);
     console.log("");
     
 }
@@ -60,6 +62,56 @@ function exercise1Sugar(allData) {
 
 
     console.log("+ The donut with the most sugar has "+ sugarQuantity +"g: ");
+
+    for (let i = 0; i < names.length; i++) {
+
+        console.log("     ~~~> "+ names[i]);
+        
+    }
+    
+}
+
+function exercise1Iron(allData) {
+
+
+    let ironQuantity = 0;
+    let names = [];
+
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.vitamines[0]);
+    
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+        const itemName = item.name;
+
+        for (let i = 0; i < item.nutrition_facts.nutrition.vitamines.length; i++) {
+            const vitamine = item.nutrition_facts.nutrition.vitamines[i];
+
+
+            let itemIron = vitamine.percent;
+            itemIron = itemIron.replace("%", "");
+            itemIron = parseInt(itemIron);
+
+            if (itemIron === ironQuantity) {
+            
+                names.push(item.name);
+    
+            }else if( itemIron > ironQuantity){
+    
+                ironQuantity = itemIron;
+                names = [];
+                names.push(item.name);
+                
+            }
+        }
+
+    
+
+        
+        
+    }
+
+
+    console.log("+ The donut with the most iron has "+ ironQuantity +"%: ");
 
     for (let i = 0; i < names.length; i++) {
 
