@@ -29,6 +29,8 @@ function exercise1(allData) {
     console.log("");(allData);
     exercise1Iron(allData);
     console.log("");
+    exercise1Protein(allData)
+    console.log("");
     
 }
 
@@ -70,6 +72,48 @@ function exercise1Sugar(allData) {
     }
     
 }
+
+function exercise1Protein(allData) {
+
+
+    let proteinQuantity = 0;
+    let names = [];
+
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.vitamines[0]);
+    
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+    
+            let itemProtein = item.nutrition_facts.nutrition.proteine;
+            itemProtein = itemProtein.replace("g", "");
+            itemProtein = parseInt(itemProtein);
+
+            if (itemProtein === proteinQuantity) {
+            
+                names.push(item.name);
+    
+            }else if( itemProtein > proteinQuantity){
+    
+                proteinQuantity = itemProtein;
+                names = [];
+                names.push(item.name);
+                
+            }
+        
+    }
+
+
+    console.log("+ The donut with the most protein has "+ proteinQuantity +"g: ");
+
+    for (let i = 0; i < names.length; i++) {
+
+        console.log("     ~~~> "+ names[i]);
+        
+    }
+    
+}
+
+
 
 function exercise1Iron(allData) {
 
@@ -120,8 +164,5 @@ function exercise1Iron(allData) {
     }
     
 }
-
-
-
 
 
