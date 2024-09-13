@@ -441,9 +441,7 @@ function exercise5(allData) {
     console.log("");
     exercise5UpdateCarbohydateDailyValue(allData);
     console.log("");
-
-    console.log("");
-
+    exercise5NewAlergen(allData);
     console.log("");
 }
 
@@ -563,5 +561,35 @@ function exercise5UpdateCarbohydateDailyValue(allData) {
     
         console.log("*****************************************************************");
 
+    }
+}
+
+function exercise5NewAlergen(allData) {
+    
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        
+
+        if (item.name === "Relaxing Alchemy") {
+
+            console.log("+ The donut -" + item.name + "- has the following values before updating:");
+            console.log(item);
+
+            const alergen = {
+                type: "Gluten Free",
+            }
+
+            item.alergen = alergen;
+            
+            
+            console.log("+ The donut -" + item.name + "- has the following values after updating:");
+            console.log(item);
+        }else{
+            console.log("+The donut -"+ item.name + "- does not need to update");
+            
+        }
+
+        
     }
 }
