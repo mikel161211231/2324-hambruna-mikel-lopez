@@ -13,6 +13,8 @@ fetch('https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
         exercise2(allData);
         console.log("\n---------------------------------------------------------------------------------\n");
         exercise3(allData);
+        console.log("\n---------------------------------------------------------------------------------\n");
+        exercise4(allData);
 
 
     });
@@ -391,5 +393,39 @@ function exercise3PosibleTopping(allData) {
             console.log("     ~~~> "+ topping.type);
             
         }
+    }
+}
+
+
+function exercise4(allData) {
+
+    console.log("Exercise 4\n");
+
+    
+    console.log(""); 
+    exercise4HowManyDonutsCanBuy(allData);
+    console.log("");
+}
+
+
+function exercise4HowManyDonutsCanBuy(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+
+    
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        let silverCoins = 4;
+        let quantity = 0;
+
+        do {
+            quantity++;
+            silverCoins -= item.ppu;
+        } while ((silverCoins - item.ppu) > 0);
+
+        console.log("You can buy "+ quantity +" -"+ item.name +"- donuts (the price is "+ item.ppu.toFixed(2) +" silver coins or "+ (item.ppu*100).toFixed(0) +" bronze coins for 1 unity) and you have "+ (silverCoins*100).toFixed(0) +" bronze coins left");
+        
     }
 }
