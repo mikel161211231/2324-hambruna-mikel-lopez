@@ -219,7 +219,9 @@ function exercise2(allData) {
     exercise2AllCaloriesMedia(allData);
     console.log("");
     exercise2SumSaturatedFat(allData);
-
+    console.log("");
+    exercise2AllVitaminesMedia(allData);
+    console.log("");
 }
 
 
@@ -295,6 +297,49 @@ function exercise2SumSaturatedFat(allData) {
 
 
     console.log("The sum of the saturated fat of all the donuts is "+ sumSaturatedFat +"g");
+    
+
+
+}
+
+function exercise2AllVitaminesMedia(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    
+    let sumVitamines = [];
+    let nameVitamines = [];
+    let vitamineQuantity = 0;
+
+    for (let i = 0; i < allData.items.item[0].nutrition_facts.nutrition.vitamines.length; i++) {
+        sumVitamines.push(0);
+    }
+    
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        for (let i = 0; i < item.nutrition_facts.nutrition.vitamines.length; i++) {
+
+            const vitamine = item.nutrition_facts.nutrition.vitamines[i];
+            vitamineQuantity = item.nutrition_facts.nutrition.vitamines.length;
+
+            let itemVitamine = vitamine.percent;
+            itemVitamine = itemVitamine.replace("%", "");
+            itemVitamine = parseFloat(itemVitamine);         
+
+            sumVitamines[i] = itemVitamine + sumVitamines[i];
+            nameVitamines[i] = vitamine.type;
+            
+        }
+    }
+
+    for (let i = 0; i < vitamineQuantity; i++) {
+        
+        let vitamineMedia = (sumVitamines[i]/vitamineQuantity);
+        console.log("The media of the vitamine -"+ nameVitamines[i] +"- is "+ vitamineMedia.toFixed(2) +"%");
+    }
+    
+
     
 
 
