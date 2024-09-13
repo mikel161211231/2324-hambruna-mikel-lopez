@@ -356,7 +356,7 @@ function exercise3(allData) {
     console.log(""); 
     exercise3PosibleButter(allData);
     console.log("");
-    
+    exercise3PosibleTopping(allData);
     console.log("");
 }
 
@@ -374,11 +374,22 @@ function exercise3PosibleButter(allData) {
             console.log("     ~~~> "+ butter.type);
             
         }
+    }
+}
 
+function exercise3PosibleTopping(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
 
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
 
+        console.log("+The donut -"+ item.name +"- has the following posible toppings:");
 
-        
-        
+        for (let i = 0; i < item.topping.length; i++) {
+            const topping = item.topping[i];
+            console.log("     ~~~> "+ topping.type);
+            
+        }
     }
 }
