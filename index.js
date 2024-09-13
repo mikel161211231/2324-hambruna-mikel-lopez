@@ -218,6 +218,7 @@ function exercise2(allData) {
     console.log("");
     exercise2AllCaloriesMedia(allData);
     console.log("");
+    exercise2SumSaturatedFat(allData);
 
 }
 
@@ -256,6 +257,29 @@ function exercise2AllCaloriesMedia(allData) {
     
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
     
+    let sumCalories = 0;
+    let itemQuantity = allData.items.item.length;
+    let caloriesMedia = 0;
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+        
+        sumCalories += item.nutrition_facts.nutrition.calories;
+        
+    }
+
+    caloriesMedia = (sumCalories/itemQuantity);
+
+    console.log("The calories media of all the donuts is "+ caloriesMedia.toFixed(2));
+    
+
+
+}
+
+function exercise2SumSaturatedFat(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    
     let sumSaturatedFat = 0;
 
     for (let i = 0; i < allData.items.item.length; i++) {
@@ -270,7 +294,7 @@ function exercise2AllCaloriesMedia(allData) {
     }
 
 
-    console.log("The sum of the saturated fat of all the donuts is "+ sumSaturatedFat.toFixed(2));
+    console.log("The sum of the saturated fat of all the donuts is "+ sumSaturatedFat +"g");
     
 
 
