@@ -11,6 +11,8 @@ fetch('https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
         exercise1(allData);
         console.log("\n---------------------------------------------------------------------------------\n");
         exercise2(allData);
+        console.log("\n---------------------------------------------------------------------------------\n");
+        exercise3(allData);
 
 
     });
@@ -345,3 +347,38 @@ function exercise2AllVitaminesMedia(allData) {
 
 }
 
+
+function exercise3(allData) {
+
+    console.log("Exercise 3\n");
+
+    
+    console.log(""); 
+    exercise3PosibleButter(allData);
+    console.log("");
+    
+    console.log("");
+}
+
+function exercise3PosibleButter(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        console.log("+The donut -"+ item.name +"- has the following posible butters:");
+
+        for (let i = 0; i < item.batters.batter.length; i++) {
+            const butter = item.batters.batter[i];
+            console.log("     ~~~> "+ butter.type);
+            
+        }
+
+
+
+
+        
+        
+    }
+}
