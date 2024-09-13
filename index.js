@@ -214,7 +214,7 @@ function exercise2(allData) {
     console.log(""); 
     exercise2AllCalories(allData);
     console.log("");
-    
+    exercise2AllCarbohydrate(allData);
     console.log("");
     
     console.log("");
@@ -230,6 +230,24 @@ function exercise2AllCalories(allData) {
         const item = allData.items.item[i];
 
         console.log("The donut -"+ item.name +"- has "+ item.nutrition_facts.nutrition.calories +" calories");
+        
+    }
+}
+
+
+function exercise2AllCarbohydrate(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        console.log("+ The donut -"+ item.name +"- has the following carbohydrates values:");
+        console.log("     ~~~> Daily value: "+ item.nutrition_facts.nutrition.carbohydrate.daily_value);
+        console.log("     ~~~> Amount: "+ item.nutrition_facts.nutrition.carbohydrate.carbs_detail.amount);
+        console.log("      ~~~> Fibre: "+ item.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre);
+        console.log("      ~~~> Sugar: "+ item.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars);
+        
         
     }
 }
