@@ -439,7 +439,7 @@ function exercise5(allData) {
     console.log("");
     exercise5AddVitamineNitacina(allData);
     console.log("");
-
+    exercise5UpdateCarbohydateDailyValue(allData);
     console.log("");
 
     console.log("");
@@ -540,6 +540,27 @@ function exercise5AddVitamineNitacina(allData) {
             console.log("This is not the donut -Magic Fusion-, there are not changes");
         }
 
+        console.log("*****************************************************************");
+
+    }
+}
+
+
+function exercise5UpdateCarbohydateDailyValue(allData) {
+
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        console.log("+The carbohydrate daily value of the donut-" + item.name + "- before the change is " + item.nutrition_facts.nutrition.carbohydrate.daily_value);
+        
+        item.nutrition_facts.nutrition.carbohydrate.daily_value = "53%"
+
+        console.log("-The carbohydrate daily value of the donut-" + item.name + "- after the change is " + item.nutrition_facts.nutrition.carbohydrate.daily_value);
+
+    
         console.log("*****************************************************************");
 
     }
