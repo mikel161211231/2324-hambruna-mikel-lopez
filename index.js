@@ -435,7 +435,7 @@ function exercise5(allData) {
 
     exercise5UpdateTransFat(allData);
     console.log(""); 
-    
+    exercise5UpdateCarbohydrate(allData);
     console.log("");
     
     console.log("");
@@ -468,14 +468,40 @@ function exercise5UpdateTransFat(allData) {
             console.log("-The trans fat of the donut-"+ item.name +"- after the change is "+ item.nutrition_facts.nutrition.fat.fat_type.trans );
         
         }else{
-            console.log("There are no need to update the trnas fat value");
+            console.log("There are no need to update the trans fat value");
             
         }
 
         console.log("*****************************************************************");
         
     }
+}
 
-    
+function exercise5UpdateCarbohydrate(allData) {
 
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+   
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+        
+        console.log("+The carbohydrate amount of the donut-"+ item.name +"- before the change is "+ item.nutrition_facts.nutrition.carbohydrate.carbs_detail.amount +" and has "+ item.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars +" sugar");
+        
+        let itemSugars = item.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars;
+        itemSugars = itemSugars.replace("g", "");
+        itemSugars = parseInt(itemSugars);
+
+
+        if (itemSugars > 50) {
+            item.nutrition_facts.nutrition.carbohydrate.carbs_detail.amount = "42g"
+            console.log("-The carbohydrate amount of the donut-"+ item.name +"- after the change is "+ item.nutrition_facts.nutrition.carbohydrate.carbs_detail.amount );
+        
+        }else{
+            console.log("-There are no need to update the carbohydrate amount value");
+            
+        }
+
+        console.log("*****************************************************************");
+        
+    }
 }
