@@ -8,10 +8,9 @@ fetch('https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
         allData = data;
 
         console.log("\n---------------------------------------------------------------------------------\n");
-
-
         exercise1(allData);
-
+        console.log("\n---------------------------------------------------------------------------------\n");
+        exercise2(allData);
 
 
     });
@@ -209,15 +208,28 @@ function exercise1Fiber(allData) {
 
 function exercise2(allData) {
 
-    console.log("Exercise 1\n");
+    console.log("Exercise 2\n");
 
     
     console.log(""); 
-    
+    exercise2AllCalories(allData);
     console.log("");
     
     console.log("");
     
     console.log("");
 
+}
+
+
+function exercise2AllCalories(allData) {
+    
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+
+        console.log("The donut -"+ item.name +"- has "+ item.nutrition_facts.nutrition.calories +" calories");
+        
+    }
 }
