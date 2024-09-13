@@ -29,7 +29,7 @@ function exercise1(allData) {
     console.log("Exercise 1\n");
 
     exercise1Sugar(allData);
-    console.log(""); (allData);
+    console.log(""); 
     exercise1Iron(allData);
     console.log("");
     exercise1Protein(allData)
@@ -44,7 +44,7 @@ function exercise1Sugar(allData) {
 
     let sugarQuantity = 0;
     let names = [];
-    // console.log(allData..item[0].nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars);
+    console.log("1.a)  Donut with more sugar: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -85,6 +85,7 @@ function exercise1Protein(allData) {
     let names = [];
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.vitamines[0]);
+    console.log("1.c)  Donut with more protein: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -126,6 +127,9 @@ function exercise1Iron(allData) {
     let names = [];
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.vitamines[0]);
+
+    console.log("1.b) Donut with more iron: \n");
+    
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -174,6 +178,8 @@ function exercise1Fiber(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.vitamines[0]);
 
+    console.log("1.d) Donut with more fibre: \n");
+    
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -234,10 +240,13 @@ function exercise2AllCalories(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
 
+    console.log("2.a) List all donuts and their calories: \n");
+    
+
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
 
-        console.log("The donut -" + item.name + "- has " + item.nutrition_facts.nutrition.calories + " calories");
+        console.log("+The donut -" + item.name + "- has " + item.nutrition_facts.nutrition.calories + " calories");
 
     }
 }
@@ -247,15 +256,16 @@ function exercise2AllCarbohydrate(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
 
+    console.log("2.b) List all donuts and their carbohydrates: \n");
+
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
 
-        console.log("+ The donut -" + item.name + "- has the following carbohydrates values:");
+        console.log("+The donut -" + item.name + "- has the following carbohydrates values:");
         console.log("     ~~~> Daily value: " + item.nutrition_facts.nutrition.carbohydrate.daily_value);
         console.log("     ~~~> Amount: " + item.nutrition_facts.nutrition.carbohydrate.carbs_detail.amount);
         console.log("      ~~~> Fibre: " + item.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.fibre);
         console.log("      ~~~> Sugar: " + item.nutrition_facts.nutrition.carbohydrate.carbs_detail.type.sugars);
-
 
     }
 }
@@ -263,6 +273,8 @@ function exercise2AllCarbohydrate(allData) {
 function exercise2AllCaloriesMedia(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    
+    console.log("2.c) Display the average calorie count of all donuts: \n");
 
     let sumCalories = 0;
     let itemQuantity = allData.items.item.length;
@@ -277,15 +289,14 @@ function exercise2AllCaloriesMedia(allData) {
 
     caloriesMedia = (sumCalories / itemQuantity);
 
-    console.log("The calories media of all the donuts is " + caloriesMedia.toFixed(2));
-
-
-
+    console.log("+The calories media of all the donuts is " + caloriesMedia.toFixed(2));
 }
 
 function exercise2SumSaturatedFat(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+
+    console.log("2.d) Show the sum of saturated fats of all donuts: \n");
 
     let sumSaturatedFat = 0;
 
@@ -300,16 +311,14 @@ function exercise2SumSaturatedFat(allData) {
 
     }
 
-
-    console.log("The sum of the saturated fat of all the donuts is " + sumSaturatedFat + "g");
-
-
+    console.log("+The sum of the saturated fat of all the donuts is " + sumSaturatedFat + "g");
 
 }
 
 function exercise2AllVitaminesMedia(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    console.log("2.e) Show the average percentage of each vitamin: \n");
 
     let sumVitamines = [];
     let nameVitamines = [];
@@ -341,12 +350,8 @@ function exercise2AllVitaminesMedia(allData) {
     for (let i = 0; i < vitamineQuantity; i++) {
 
         let vitamineMedia = (sumVitamines[i] / vitamineQuantity);
-        console.log("The media of the vitamine -" + nameVitamines[i] + "- is " + vitamineMedia.toFixed(2) + "%");
+        console.log("+The media of the vitamine -" + nameVitamines[i] + "- is " + vitamineMedia.toFixed(2) + "%");
     }
-
-
-
-
 
 }
 
@@ -366,6 +371,7 @@ function exercise3(allData) {
 function exercise3PosibleButter(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    console.log("3.a) List each donut with its possible masses, batter: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -383,6 +389,7 @@ function exercise3PosibleButter(allData) {
 function exercise3PosibleTopping(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    console.log("3.b) List each donut with possible topping extras: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -412,6 +419,7 @@ function exercise4(allData) {
 function exercise4HowManyDonutsCanBuy(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+    console.log("4.a) Show how many donuts of each type we can buy and the coins left over (initial 4 silver coins): \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -449,7 +457,7 @@ function exercise5(allData) {
 function exercise5UpdateTransFat(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
-
+    console.log("5.a) Donuts with cholesterol > 12 modify trans fats to 3.2g: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -478,7 +486,8 @@ function exercise5UpdateTransFat(allData) {
 function exercise5UpdateCarbohydrate(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
-
+    
+    console.log("5.b) Donuts with sugar > 50 modify the amount of carbohydrate details to 42g: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -506,6 +515,8 @@ function exercise5UpdateCarbohydrate(allData) {
 
 function exercise5AddVitamineNitacina(allData) {
 
+    
+    console.log("5.c) Add a vitamin called “Nitacin” to the donut with the name “Magic Fusion”: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -535,7 +546,7 @@ function exercise5AddVitamineNitacina(allData) {
                 console.log("     ~~~> " + vitamine.type + " has " + vitamine.percent);
             }
         }else{
-            console.log("This is not the donut -Magic Fusion-, there are not changes");
+            console.log("This is not the donut -Magic Fusion-, there are no changes");
         }
 
         console.log("*****************************************************************");
@@ -547,7 +558,7 @@ function exercise5AddVitamineNitacina(allData) {
 function exercise5UpdateCarbohydateDailyValue(allData) {
 
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
-
+    console.log("5.d) The daily carbohydrate value of all donuts will be 53%: \n");
 
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -565,6 +576,8 @@ function exercise5UpdateCarbohydateDailyValue(allData) {
 }
 
 function exercise5NewAlergen(allData) {
+
+    console.log("5.e) Create a new “Allergen” attribute for the donut called “Relaxing Alchemy” and put “Gluten Free” inside it: \n");
     
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
@@ -586,7 +599,7 @@ function exercise5NewAlergen(allData) {
             console.log("+ The donut -" + item.name + "- has the following values after updating:");
             console.log(item);
         }else{
-            console.log("+The donut -"+ item.name + "- does not need to update");
+            console.log("+The donut -"+ item.name + "- doesn't need to update");
             
         }
 
