@@ -15,7 +15,8 @@ fetch('https://gist.githubusercontent.com/Oskar-Dam/62e7175dc542af53a9d18cb29242
         exercise3(allData);
         console.log("\n---------------------------------------------------------------------------------\n");
         exercise4(allData);
-
+        console.log("\n---------------------------------------------------------------------------------\n");
+        exercise5(allData);
 
     });
 
@@ -412,8 +413,6 @@ function exercise4HowManyDonutsCanBuy(allData) {
     
     // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
 
-    
-
     for (let i = 0; i < allData.items.item.length; i++) {
         const item = allData.items.item[i];
 
@@ -428,4 +427,55 @@ function exercise4HowManyDonutsCanBuy(allData) {
         console.log("You can buy "+ quantity +" -"+ item.name +"- donuts (the price is "+ item.ppu.toFixed(2) +" silver coins or "+ (item.ppu*100).toFixed(0) +" bronze coins for 1 unity) and you have "+ (silverCoins*100).toFixed(0) +" bronze coins left");
         
     }
+}
+
+function exercise5(allData) {
+
+    console.log("Exercise 5\n");
+
+    exercise5UpdateTransFat(allData);
+    console.log(""); 
+    
+    console.log("");
+    
+    console.log("");
+    
+    console.log("");
+    
+    console.log("");
+    
+    console.log("");
+}
+
+
+function exercise5UpdateTransFat(allData) {
+
+    // console.log(allData.items.item[0].nutrition_facts.nutrition.calories);
+   
+
+    for (let i = 0; i < allData.items.item.length; i++) {
+        const item = allData.items.item[i];
+        
+        console.log("+The trans fat of the donut-"+ item.name +"- before the change is "+ item.nutrition_facts.nutrition.fat.fat_type.trans +" and has "+ item.nutrition_facts.nutrition.cholesterol.amount +" cholesterol");
+        
+        let itemCholesterol = item.nutrition_facts.nutrition.cholesterol.amount;
+        itemCholesterol = itemCholesterol.replace("mg", "");
+        itemCholesterol = parseInt(itemCholesterol);
+
+
+        if (itemCholesterol > 12) {
+            item.nutrition_facts.nutrition.fat.fat_type.trans = "3.2g"
+            console.log("-The trans fat of the donut-"+ item.name +"- after the change is "+ item.nutrition_facts.nutrition.fat.fat_type.trans );
+        
+        }else{
+            console.log("There are no need to update the trnas fat value");
+            
+        }
+
+        console.log("*****************************************************************");
+        
+    }
+
+    
+
 }
